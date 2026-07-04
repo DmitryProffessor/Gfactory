@@ -1,0 +1,34 @@
+embedding:
+  model_name: "BAAI/bge-base-en-v1.5"
+  device: "cuda"   # or "cpu"
+  normalize_embeddings: true
+
+chunking:
+  chunk_size: 512
+  chunk_overlap_ratio: 0.1
+  separators:
+    - "\n\n"
+    - "\n"
+    - ". "
+    - " "
+    - ""
+
+retrieval:
+  top_k_per_query: 30
+  final_k: 5
+
+reranker:
+  model_name: "colbert-ir/colbertv2.0"
+
+reader:
+  model_name: "HuggingFaceH4/zephyr-7b-beta"
+  quantization:
+    load_in_4bit: true
+    bnb_4bit_use_double_quant: true
+    bnb_4bit_quant_type: "nf4"
+    bnb_4bit_compute_dtype: "bfloat16"
+  generation:
+    do_sample: true
+    temperature: 0.2
+    repetition_penalty: 1.1
+    max_new_tokens: 800
