@@ -18,3 +18,4 @@ python-dotenv
 ragatouille
 pydantic
 tqdm
+byaldi
