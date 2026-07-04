@@ -17,6 +17,6 @@
 ## Installation
 
 ```bash
-git clone https://github.com/your-org/hypothesis-rag.git
-cd hypothesis-rag
+git clone https://github.com/DmitryProffessor/Gfactory.git
+cd gfactory
 pip install -e .
