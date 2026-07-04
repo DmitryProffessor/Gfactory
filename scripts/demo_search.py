@@ -33,7 +33,7 @@ def run_demo():
             print(f"📄 Файл: {image_filename}")
             print(f"🔥 Уверенность (Score): {res.score:.2f}")
             
-            # АВТОМАТИЧЕСКИ ОТКРЫВАЕМ КАРТИНКУ (фишка для демо)
+            # АВТОМАТИЧЕСКИ ОТКРЫВАЕМ КАРТИНКУ
             if os.path.exists(image_path):
                 print("Открываю изображение для демонстрации...")
                 img = Image.open(image_path)
