@@ -1,21 +1,10 @@
 torch
+torchvision
+torchaudio --index-url https://download.pytorch.org/whl/cu124
+byaldi
 transformers
 accelerate
-bitsandbytes
-langchain
-langchain-community
-langchain-huggingface
-langchain-text-splitters
-sentence-transformers
-faiss-gpu # or faiss-cpu if no GPU
-pypdf
-pdfplumber
-python-docx
-pandas
-openpyxl
+pymupdf
+einops
+pillow
 pyyaml
-python-dotenv
-ragatouille
-pydantic
-tqdm
-byaldi
