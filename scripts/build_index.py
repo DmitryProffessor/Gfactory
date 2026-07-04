@@ -3,6 +3,27 @@ import os
 from src.loader import MultiSourceLoader
 from src.chunker import chunk_documents
 from src.indexer import build_index, load_embedding_model
+from byaldi import RAGMultiModalModel
+import os
+
+def build():
+    # Загружаем мультимодальную модель ColPali
+    model = RAGMultiModalModel.from_pretrained("vidore/colpali-v1.2")
+    
+    # Папка с PDF
+    input_path = "data/raw"
+    
+    # Создаем индекс (модель превратит страницы PDF в векторы-картинки)
+    model.index(
+        input_path=input_path,
+        index_name="metallurgy_index",
+        store_collection_with_index=True,
+        overwrite=True
+    )
+    print("Индексация завершена! Схема теперь в базе.")
+
+if __name__ == "__main__":
+    build()
 import yaml
 
 def main():
