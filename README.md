@@ -14,6 +14,43 @@
 - **Structured hypothesis output** – Каждая гипотеза включает обоснование, механизм, новизну, риск, ожидаемое влияние на ключевые показатели эффективности и необязательный экспериментальный план действий.
 - **Modular & configurable** –  Все компоненты (модели, разбивка на блоки, поиск) настраиваются с помощью YAML.
 
+## ✨ Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 📂 **Multi‑source Ingestion** | Loads PDFs, Word, CSV, Excel, and text files with rich metadata (source type, date, material system, property/process tags). |
+| ✂️ **Token‑aware Chunking** | Uses `RecursiveCharacterTextSplitter` with Hugging Face tokenizers to respect model `max_seq_length`. Keeps tabular rows intact. |
+| 🧠 **Domain Embeddings** | Leverages `BAAI/bge-base-en-v1.5` for technical/scientific text (can be swapped). |
+| 🔍 **Multi‑query Retrieval** | Generates separate sub‑queries for the target/KPI, each constraint, and extracted tags – merges and deduplicates results. |
+| 🎯 **ColBERT Reranking** | Refines the candidate set using ColBERTv2 to keep only the most relevant documents. |
+| 📝 **Structured Hypothesis Output** | Each hypothesis includes *statement*, *justification*, *mechanism*, *novelty*, *risk*, *expected KPI impact*, and *optional experimental roadmap*. |
+| ⚙️ **Fully Configurable** | All models, chunking parameters, retrieval top‑k, and generation settings are controlled via `config/default.yaml`. |
+
+### 📂 Project Structure
+
+Gfactory/
+├── README.md
+├── requirements.txt
+├── setup.py
+├── config/
+│   └── default.yaml
+├── src/
+│   ├── __init__.py
+│   ├── schemas.py          # Pydantic models
+│   ├── loader.py           # Multi‑source loader
+│   ├── chunker.py          # Token‑aware chunking
+│   ├── indexer.py          # FAISS index building
+│   ├── retriever.py        # Multi‑query retrieval
+│   ├── reranker.py         # ColBERT reranking
+│   ├── generator.py        # LLM prompt & parsing
+│   └── pipeline.py         # End‑to‑end HypothesisGenerator
+├── scripts/
+│   ├── build_index.py
+│   └── run_query.py
+├── notebooks/
+│   └── demo.ipynb
+└── data/                   # (user‑provided)
+
 ## Installation
 
 ```bash
