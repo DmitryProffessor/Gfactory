@@ -26,31 +26,6 @@
 | 📝 **Structured Hypothesis Output** | Each hypothesis includes *statement*, *justification*, *mechanism*, *novelty*, *risk*, *expected KPI impact*, and *optional experimental roadmap*. |
 | ⚙️ **Fully Configurable** | All models, chunking parameters, retrieval top‑k, and generation settings are controlled via `config/default.yaml`. |
 
-### 📂 Project Structure
-
-Gfactory/
-├── README.md
-├── requirements.txt
-├── setup.py
-├── config/
-│   └── default.yaml
-├── src/
-│   ├── __init__.py
-│   ├── schemas.py          # Pydantic models
-│   ├── loader.py           # Multi‑source loader
-│   ├── chunker.py          # Token‑aware chunking
-│   ├── indexer.py          # FAISS index building
-│   ├── retriever.py        # Multi‑query retrieval
-│   ├── reranker.py         # ColBERT reranking
-│   ├── generator.py        # LLM prompt & parsing
-│   └── pipeline.py         # End‑to‑end HypothesisGenerator
-├── scripts/
-│   ├── build_index.py
-│   └── run_query.py
-├── notebooks/
-│   └── demo.ipynb
-└── data/                   # (user‑provided)
-
 ## Installation
 
 ```bash
